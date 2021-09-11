@@ -1,0 +1,92 @@
+<div class="container_companyDetail">
+    <app-menu></app-menu>
+    <div>
+        <div class="header">
+            <div class="material-icons">first_page</div>
+            <div class="head">
+                <p>{{companyName}}</p>
+                <div class="head_detail">
+                    <span>116.67%</span> &nbsp;
+                    Profile Completion
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <div class="menu">
+                <ul>
+                    <li class="active">Documents</li>
+                    <li>Tasks</li>
+                    <li>Payments</li>
+                    <li>Profile</li>
+                </ul>
+            </div>
+            <div class="year_month">
+                <select>
+                    <option value="FY 2020-2021">FY 2020-2021</option>
+                </select>
+                <select>
+                    <option value="May">May</option>
+                </select>
+            </div>
+        </div>
+        <div class="document_section">
+            <div class="document_menu">
+                <ul>
+                    <li class="active_state">All</li>
+                    <li>GST</li>
+                    <li>TDS</li>
+                    <li>TCS</li>
+                    <li>ESI PF</li>
+                    <li>ADVANCE TAX</li>
+                    <li>INCOME TAX</li>
+                </ul>
+            </div>
+            <div class="documents">
+                <p>October</p>
+                <br>
+                <div class="docs">
+                    <div *ngFor="let info of record">
+                        <div class="outerbox" *ngIf="info.folder.length > 0;else elseBlock"
+                            style="background: url({{info.folder[0].preview}}); background-position: center; background-repeat: no-repeat; background-size: cover; ">
+                            <div class="doc_detail">
+                                <div>
+                                    <div class="titles">
+                                        {{info.docType}}
+                                    </div>
+                                    <div class="type">
+                                        {{info.type}}
+                                    </div>
+                                </div>
+                                <div class="upload">
+                                    <button>
+                                        + Upload
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-template #elseBlock>
+                            <div class="outerbox"
+                                style="background: url(../../assets/images.jfif); background-position: center; background-repeat: no-repeat; background-size: cover; ">
+                                <div class="doc_detail">
+                                    <div>
+                                        <div class="titles">
+                                            {{info.docType}}
+                                        </div>
+                                        <div class="type">
+                                            {{info.type}}
+                                        </div>
+                                    </div>
+                                    <div class="upload">
+                                        <button>
+                                            + Upload
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
